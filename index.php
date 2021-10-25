@@ -1,10 +1,13 @@
 <?php 
+    $thr_price = 0.9;
+
+
     echo("Request starting...");
-    $lat = $_GET["lat"];
-    $lng = $_GET["lng"];
-    $radius = $_GET["radius"];
-    $sort = $_GET["sort"];
-    $type = $_GET["type"];
+    $lat = $_GET["lat"] || '47.937580';
+    $lng = $_GET["lng"] || '10.235170';
+    $radius = $_GET["price"] || '10';
+    $sort = $_GET["sort"] || 'price';
+    $type = $_GET["type"] || 'e5';
 
     echo("Got request with: " .$lat . ", " . $lng . ", " . $radius . ", " . $sort . ", " . $type);
     
