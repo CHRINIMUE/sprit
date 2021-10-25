@@ -4,7 +4,7 @@
     $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
     $lng = isset($_GET["lng"]) ? $_GET["lng"] : '10.235170';
     $radius = isset($_GET["radius"]) ? $_GET["radius"] : '10';
-    $sort = isset($_GET["sort"]) ? $_GET["sort"] : 'price';
+    $sort = 'price';
     $type = isset($_GET["type"]) ? $_GET["type"] : 'e5';
     $thr_price = isset($_GET["price"]) ? $_GET["price"] : '1.6';
     $mail = isset($_GET["mail"]) ? $_GET["mail"] : 'mail99@posteo.me';
@@ -641,7 +641,7 @@
                                       <img
                                         alt="Karte"
                                         class="big"
-                                        src="images/Airplane_fIRST_Image_.png"
+                                        src="'.get_static_image_url($final_stations).'"
                                         style="
                                           display: block;
                                           height: auto;
@@ -664,6 +664,27 @@
                   </tr>
                 </tbody>
               </table>';
+
+        function get_static_image_url($stations){
+
+            $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
+            
+            $i = 1;
+            foreach ($stations as $station) {
+                if ($i == 1){
+                    $url .= 'pin-s-'.$i.'ff8000('.$station->lat.','.$station->lng.')';
+                }
+                else {
+                    $url .= ',pin-s-'.$i.'285A98('.$station->lat.','.$station->lng.')';
+                }
+                $i++;                
+            }
+
+            url .= '/'.$lat.','.$lng.',12,0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
+
+        }
+
+
         $info = '
               <table
                 align="center"
