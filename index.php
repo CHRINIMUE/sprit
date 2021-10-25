@@ -1293,8 +1293,14 @@
 
         $message = $header . $first_station . $image;
         
+        $first = true
         foreach ($final_stations as $station) {
-            $message .= single_station($station->name, $station->price, $station->dist, $station->lat, $station->lng);
+            if ($fist){
+                $fist = false;
+            }
+            else {
+                $message .= single_station($station->name, $station->price, $station->dist, $station->lat, $station->lng);
+            }
         }
 
         $message .= $end;
