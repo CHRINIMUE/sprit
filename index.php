@@ -502,21 +502,19 @@
                                     "
                                   >
                                     <div style="font-family: sans-serif">
-                                      <div
-                                        style="
+                                      <div style="
                                           font-size: 12px;
                                           color: #00255b;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
                                             Helvetica, sans-serif;
-                                        "
-                                      >
+                                        ">
                                         <p style="margin: 0; font-size: 12px">
-                                          <span style="font-size: 22px"
-                                            ><strong
-                                              ><span style="">'.$final_stations[0]->price.' €</span></strong
-                                            ></span
-                                          >
+                                          <span style="font-size: 22px">
+                                            <strong>
+                                                <span style="">'.$final_stations[0]->price.' &euro;</span>
+                                                </strong>
+                                            </span>
                                         </p>
                                       </div>
                                     </div>
@@ -801,7 +799,9 @@
                 </tbody>
               </table>';
 
-        $single_station = '
+        
+        function single_station($name, $preis, $distance, $lat, $lng) {
+            return '
               <table
                 align="center"
                 border="0"
@@ -884,7 +884,7 @@
                                         >
                                           <span style="font-size: 22px"
                                             ><strong
-                                              >Name of Station long version<br /></strong
+                                              >'.$name.'<br /></strong
                                           ></span>
                                         </p>
                                       </div>
@@ -949,7 +949,7 @@
                                           word-break: keep-all;
                                         "
                                       >
-                                      <a href="https://google.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
+                                      <a href="http://maps.google.com/maps?q=loc:' . $lat . ',' . $lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -1023,9 +1023,8 @@
                                         <p style="margin: 0; font-size: 12px">
                                           <span style="font-size: 22px"
                                             ><strong
-                                              ><span style="">Price</span></strong
-                                            ></span
-                                          >
+                                              ><span style="">'.price.' &euro;</span></strong
+                                            ></span>
                                         </p>
                                       </div>
                                     </div>
@@ -1064,7 +1063,7 @@
                                         "
                                       >
                                         <p style="margin: 0; font-size: 12px">
-                                          disctance
+                                          '.$distance.' km
                                         </p>
                                       </div>
                                     </div>
@@ -1078,380 +1077,8 @@
                     </td>
                   </tr>
                 </tbody>
-              </table>';
-
-            $second_station = '
-              <table
-                align="center"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                class="row row-7"
-                role="presentation"
-                style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="row-content stack"
-                        role="presentation"
-                        style="
-                          mso-table-lspace: 0pt;
-                          mso-table-rspace: 0pt;
-                          background-color: #0377ea;
-                        "
-                        width="600"
-                      >
-                        <tbody>
-                          <tr>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                                padding-top: 0px;
-                                padding-bottom: 0px;
-                              "
-                              width="100%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="5"
-                                cellspacing="0"
-                                class="divider_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td>
-                                    <div align="center">
-                                      <table
-                                        border="0"
-                                        cellpadding="0"
-                                        cellspacing="0"
-                                        role="presentation"
-                                        style="
-                                          mso-table-lspace: 0pt;
-                                          mso-table-rspace: 0pt;
-                                        "
-                                        width="90%"
-                                      >
-                                        <tr>
-                                          <td
-                                            class="divider_inner"
-                                            style="
-                                              font-size: 1px;
-                                              line-height: 1px;
-                                              border-top: 1px solid #ffffff;
-                                            "
-                                          >
-                                            <span></span>
-                                          </td>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <table
-                align="center"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                class="row row-8"
-                role="presentation"
-                style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="row-content"
-                        role="presentation"
-                        style="
-                          mso-table-lspace: 0pt;
-                          mso-table-rspace: 0pt;
-                          background-color: #0377ea;
-                        "
-                        width="600"
-                      >
-                        <tbody>
-                          <tr>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                                padding-left: 10px;
-                              "
-                              width="33.333333333333336%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="text_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  word-break: break-word;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td
-                                    style="
-                                      padding-bottom: 20px;
-                                      padding-left: 10px;
-                                      padding-right: 10px;
-                                      padding-top: 20px;
-                                    "
-                                  >
-                                    <div style="font-family: sans-serif">
-                                      <div
-                                        style="
-                                          font-size: 12px;
-                                          color: #ffffff;
-                                          line-height: 1.2;
-                                          font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
-                                        "
-                                      >
-                                        <p
-                                          style="
-                                            margin: 0;
-                                            font-size: 12px;
-                                            text-align: center;
-                                          "
-                                        >
-                                          <span style="font-size: 22px"
-                                            ><strong
-                                              >Name of STatlino<br /></strong
-                                          ></span>
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                              "
-                              width="41.666666666666664%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="button_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td
-                                    style="
-                                      text-align: center;
-                                      padding-top: 20px;
-                                      padding-right: 10px;
-                                      padding-bottom: 25px;
-                                      padding-left: 10px;
-                                    "
-                                  >
-                                    <div align="center">
-                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:108px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#ffdb29"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#0377ea; font-family:Arial, sans-serif; font-size:16px"><![endif]-->
-                                      <div
-                                        style="
-                                          text-decoration: none;
-                                          display: inline-block;
-                                          color: #0377ea;
-                                          background-color: #ffdb29;
-                                          border-radius: 4px;
-                                          width: auto;
-                                          border-top: 1px solid #ffdb29;
-                                          border-right: 1px solid #ffdb29;
-                                          border-bottom: 1px solid #ffdb29;
-                                          border-left: 1px solid #ffdb29;
-                                          padding-top: 5px;
-                                          padding-bottom: 5px;
-                                          font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
-                                          text-align: center;
-                                          mso-border-alt: none;
-                                          word-break: keep-all;
-                                        "
-                                      >
-                                      <a href="https://google.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
-                                        <span
-                                          style="
-                                            padding-left: 20px;
-                                            padding-right: 20px;
-                                            font-size: 16px;
-                                            display: inline-block;
-                                            letter-spacing: normal;
-                                          "
-                                          ><span
-                                            style="
-                                              font-size: 16px;
-                                              line-height: 2;
-                                              word-break: break-word;
-                                              mso-line-height-alt: 32px;
-                                            "
-                                            >drive Now</span
-                                          ></span
-                                        >
-                                        </a>
-                                      </div>
-                                      <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                                padding-right: 10px;
-                              "
-                              width="25%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="text_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  word-break: break-word;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td
-                                    style="
-                                      padding-bottom: 10px;
-                                      padding-left: 10px;
-                                      padding-right: 10px;
-                                      padding-top: 20px;
-                                    "
-                                  >
-                                    <div style="font-family: sans-serif">
-                                      <div
-                                        style="
-                                          font-size: 12px;
-                                          color: #ffffff;
-                                          line-height: 1.2;
-                                          font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
-                                        "
-                                      >
-                                        <p style="margin: 0; font-size: 12px">
-                                          <span style="font-size: 22px"
-                                            ><strong
-                                              ><span style="">Price</span></strong
-                                            ></span
-                                          >
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="text_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                  word-break: break-word;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td
-                                    style="
-                                      padding-left: 10px;
-                                      padding-right: 10px;
-                                      padding-bottom: 10px;
-                                    "
-                                  >
-                                    <div style="font-family: sans-serif">
-                                      <div
-                                        style="
-                                          font-size: 12px;
-                                          color: #ffffff;
-                                          line-height: 1.2;
-                                          font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
-                                        "
-                                      >
-                                        <p style="margin: 0; font-size: 12px">
-                                          disctance
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>';
-
+            </table>';
+        }
 
             $end = '
               <table
@@ -1667,7 +1294,7 @@
         $message = $header . $first_station . $image;
         
         foreach ($final_stations as $station) {
-            # code...
+            $message .= single_station($station->name, $station->price, $station->dist, $station->lat, $station->lng);
         }
 
         $message .= $end;
