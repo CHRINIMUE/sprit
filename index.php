@@ -1295,8 +1295,8 @@
         
         $first = true;
         foreach ($final_stations as $station) {
-            if ($fist){
-                $fist = false;
+            if ($first){
+                $first = false;
             }
             else {
                 $message .= single_station($station->name, $station->price, $station->dist, $station->lat, $station->lng);
