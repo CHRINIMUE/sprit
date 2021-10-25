@@ -1314,7 +1314,7 @@
             'X-Mailer: PHP/' . phpversion();
 
         $message = $header . $first_station;
-        $message .= $get_static_image($final_stations, $lat, $lng);
+        $message .= get_static_image($final_stations, $lat, $lng);
         
         $first = true;
         foreach ($final_stations as $station) {
