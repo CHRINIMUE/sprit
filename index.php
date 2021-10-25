@@ -58,7 +58,7 @@
         $message = '<html><body>';
         $message .= '<h1 style="color:#f40;">Hi '.$name.'</h1>';
         $message .= '<p style="color:#080;font-size:18px;">Tanke jetzt!</p>';
-        $message .= '<p style="color:#080;font-size:18px;background-color: #808080;"><a href="geo:{$final_stations[0]["lat"]},{$final_stations[0]["lng"]}" >Losfahren!</></p>';
+        $message .= '<p style="color:#080;font-size:18px;background-color: #808080;"><a href="geo:'.$final_stations[0]["lat"].','.$final_stations[0]["lng"]}'.'>Losfahren!</></p>';
         $message .= print_r($final_stations, true);
         $message .= '</body></html>';
         
