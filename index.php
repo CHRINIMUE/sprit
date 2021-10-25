@@ -14,7 +14,7 @@
         ."&apikey=00000000-0000-0000-0000-000000000002");   // Demo-Key ersetzen!
     $data = json_decode($json);
     display($data);
-    echo($data);
+    echo($json);
     var_dump($data);
-    
+
 ?>
