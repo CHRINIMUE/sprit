@@ -40,7 +40,7 @@
     }
 
     if (sizeof($filtered_stations) > 0){
-        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . var_dump($final_stations));
+        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . print_r($final_stations, true));
         var_dump($final_stations);
     }
     
