@@ -32,7 +32,7 @@
 
 
 
-    if (($filtered_stations) < 3){
+    if (($filtered_stations) <= 3){
     
         for ($i = sizeof($filtered_stations) - 1; $i < 3; $i++){
             array_push($final_stations, $data->stations[$i]);
