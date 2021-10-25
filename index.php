@@ -21,7 +21,7 @@
     var_dump($data);
 
 
-    mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $data);
+    mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $json);
 
     
 
