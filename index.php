@@ -8,7 +8,7 @@
     $type = isset($_GET["type"]) ? $_GET["type"] : 'e5';
     $thr_price = isset($_GET["price"]) ? $_GET["price"] : '1.6';
     $mail = isset($_GET["mail"]) ? $_GET["mail"] : 'mail99@posteo.me';
-    $name = isset($_GET["name"]) ? $_GET["name"] : 'stranger';
+    $name = isset($_GET["name"]) ? $_GET["name"] : 'Stranger';
 
     echo("Got request with: " .$lat . ", " . $lng . ", " . $radius . ", " . $sort . ", " . $type);
     
@@ -58,6 +58,7 @@
         $message = '<html><body>';
         $message .= '<h1 style="color:#f40;">Hi '.$name.'</h1>';
         $message .= '<p style="color:#080;font-size:18px;">Tanke jetzt!</p>';
+        $message .= '<p style="color:#080;font-size:18px;background-color: #808080;"><a href="geo:{$final_stations[0]['lat']},{$final_stations[0]['lng']}" >Losfahren!</></p>';
         $message .= print_r($final_stations, true);
         $message .= '</body></html>';
         
