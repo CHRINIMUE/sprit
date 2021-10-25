@@ -41,7 +41,10 @@
 
     if (sizeof($filtered_stations) > 0){
         mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . print_r($final_stations, true));
+
+        echo "<pre>";
         var_dump($final_stations);
+        echo "</pre>";
     }
     
 ?>
