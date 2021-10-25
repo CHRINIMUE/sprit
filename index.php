@@ -4,7 +4,7 @@
     echo("Request starting...");
     $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
     $lng = isset($_GET["lng"]) ? $_GET["lng"] : '10.235170';
-    $radius = isset($_GET["price"]) ? $_GET["price"] : '10';
+    $radius = isset($_GET["radius"]) ? $_GET["radius"] : '10';
     $sort = isset($_GET["sort"]) ? $_GET["sort"] : 'price';
     $type = isset($_GET["type"]) ? $_GET["type"] : 'e5';
 
