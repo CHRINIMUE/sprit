@@ -1,4 +1,5 @@
 <?php 
+    echo("Request starting...");
     $lat = $_GET["lat"];
     $lng = $_GET["lng"];
     $radius = $_GET["radius"];
@@ -14,4 +15,5 @@
     $data = json_decode($json);
     display($data);
     echo($data);
+    var_dump($data);
 ?>
