@@ -43,7 +43,7 @@
     if (sizeof($filtered_stations) > 0){
         $to = $mail;
         $subject = 'Tanke jetzt oder nie!';
-        $from = 'no-replay@sprit.chrinimue.de';
+        $from = 'no-reply@sprit.chrinimue.de';
         
         // To send HTML mail, the Content-type header must be set
         $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -61,7 +61,7 @@
         $message .= print_r($final_stations, true);
         $message .= '</body></html>';
         
-        if (mail($to , $subject, $message)){
+        if (mail($to , $subject, $message, $headers)){
             echo("Mail send");
         }
         else {
