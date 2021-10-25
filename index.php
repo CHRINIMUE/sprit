@@ -16,4 +16,5 @@
     display($data);
     echo($data);
     var_dump($data);
+    
 ?>
