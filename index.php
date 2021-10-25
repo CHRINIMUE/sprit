@@ -17,8 +17,11 @@
         ."&apikey=00000000-0000-0000-0000-000000000002");   // Demo-Key ersetzen!
     $data = json_decode($json);
 
-    echo($json);
+    //echo($json);
     var_dump($data);
+
+
+    mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $data);
 
     
 
