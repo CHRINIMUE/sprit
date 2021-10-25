@@ -800,7 +800,7 @@
               </table>';
 
         
-        function single_station($name, $preis, $distance, $lat, $lng) {
+        function single_station($name, $price, $distance, $lat, $lng) {
             return '
               <table
                 align="center"
