@@ -1,5 +1,5 @@
 <?php 
-    $thr_price = 1;
+    $thr_price = 1.7;
 
     echo("Request starting...");
     $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
