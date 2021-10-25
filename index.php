@@ -587,7 +587,7 @@
                 $zoom = 10;
                 if ($radius < 5){
                     $zoom = 12;
-                } else if ($radius < 15){
+                } else if ($radius < 10){
                     $zoom = 11;
                 }
                 
