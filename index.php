@@ -1,5 +1,5 @@
 <?php 
-    $thr_price = 0.9;
+    $thr_price = 1.5;
 
     echo("Request starting...");
     $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
@@ -23,8 +23,21 @@
     var_dump($data);
 
 
-    mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $json);
+    $filtered_stations = new array();
+    $final_stations = new array();
 
+    foreach ($data['stations'] as $value) {
+        if ($value['price'] <= $thr_price){
+            array_push($filtered_stations, $value);
+        }
+    }
+    $final_stations = $filtered_stations;
+    if (sizeof($filtered_stations) < 3){
+        //
+    }
+
+    if (sizeof($filtered_stations) > 0){
+        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $json);
+    }
     
-
 ?>
