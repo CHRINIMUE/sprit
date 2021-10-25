@@ -1813,7 +1813,7 @@
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-            $message = $header + $first_station + $end;
+            $message = $header . $first_station . $end;
         
         // Compose a simple HTML email message
         /*
