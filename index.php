@@ -1023,7 +1023,7 @@
                                         <p style="margin: 0; font-size: 12px">
                                           <span style="font-size: 22px"
                                             ><strong
-                                              ><span style="">'.price.' &euro;</span></strong
+                                              ><span style="">'.$price.' &euro;</span></strong
                                             ></span>
                                         </p>
                                       </div>
