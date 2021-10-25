@@ -576,7 +576,7 @@
                 </tbody>
               </table>';
 
-    $imgae = '
+    $image = '
               <table
                 align="center"
                 border="0"
@@ -1334,7 +1334,7 @@
                                               word-break: break-word;
                                               mso-line-height-alt: 32px;
                                             "
-                                            >drive now</span
+                                            ><a href="href="http://maps.google.com/maps?q=loc:' . $final_stations[0]->lat . ',' . $final_stations[0]->lng . '"">Drive Now</a></span
                                           ></span
                                         >
                                       </div>
@@ -1813,7 +1813,13 @@
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-            $message = $header . $first_station . $end;
+        $message = $header . $first_station . $image;
+        
+        foreach ($final_stations as $station) {
+            # code...
+        }
+
+        $message .= $end;
         
         // Compose a simple HTML email message
         /*
