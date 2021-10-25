@@ -5,6 +5,8 @@
     $radius = $_GET["radius"];
     $sort = $_GET["sort"];
     $type = $_GET["type"];
+
+    echo("Got req")
     $json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
         ."?lat=$lat"     // geographische Breite
         ."&lng=$lng"     //               Länge
