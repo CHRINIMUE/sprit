@@ -10,6 +10,12 @@
     $mail = isset($_GET["mail"]) ? $_GET["mail"] : 'mail99@posteo.me';
     $name = isset($_GET["name"]) ? $_GET["name"] : 'Stranger';
 
+    if ($radius > 25) {
+        $radius = 25;
+    } else if ($radius < 1) {
+        $radius = 1;
+    }
+
     echo("Got request with: " .$lat . ", " . $lng . ", " . $radius . ", " . $sort . ", " . $type);
     
     $json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
@@ -578,6 +584,13 @@
 
                 $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
                 
+                $zoom = 10;
+                if ($radius < 5){
+                    $zoom = 12;
+                } else if ($radius < 15){
+                    $zoom = 11;
+                }
+                
                 $i = 1;
                 foreach ($stations as $station) {
                     if ($i == 1){
@@ -589,7 +602,7 @@
                     $i++;                
                 }
     
-                $url .= '/'.$lng.','.$lat.',12,0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
+                $url .= '/'.$lng.','.$lat.','.$zoom.',0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
             
                 return '
                 <table
