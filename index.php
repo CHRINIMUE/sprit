@@ -29,6 +29,9 @@
     }
     
     $final_stations = $filtered_stations;
+
+
+
     if (($filtered_stations) < 3){
     
         for ($i = sizeof($filtered_stations) - 1; $i < 3; $i++){
@@ -37,7 +40,7 @@
     }
 
     if (sizeof($filtered_stations) > 0){
-        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . $final_stations);
+        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . var_dump($final_stations));
         var_dump($final_stations);
     }
     
