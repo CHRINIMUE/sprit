@@ -26,9 +26,9 @@
     $filtered_stations = array();
     $final_stations = array();
 
-    var_dump($data['stations']);
-    foreach ($data['stations'] as $value) {
-        if ($value['price'] <= $thr_price){
+    var_dump($data->stations);
+    foreach ($data->stations as $value) {
+        if ($value->price <= $thr_price){
             array_push($filtered_stations, $value);
         }
     }
