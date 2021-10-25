@@ -23,7 +23,7 @@
     $final_stations = array();
 
     foreach ($data->stations as $value) {
-        if ($value->price <= $thr_price){
+        if ($value->price <= $thr_price && $value->isOpen == true){
             array_push($filtered_stations, $value);
         }
     }
