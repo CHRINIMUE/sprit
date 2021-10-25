@@ -580,7 +580,7 @@
                 </tbody>
               </table>';
 
-              function get_static_image($stations, $lat, $lng){
+              function get_static_image($stations, $lat, $lng, $radius){
 
                 $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
                 
@@ -1327,7 +1327,7 @@
             'X-Mailer: PHP/' . phpversion();
 
         $message = $header . $first_station;
-        $message .= get_static_image($final_stations, $lat, $lng);
+        $message .= get_static_image($final_stations, $lat, $lng, $radius);
         
         $first = true;
         foreach ($final_stations as $station) {
