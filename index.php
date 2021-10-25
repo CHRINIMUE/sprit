@@ -514,7 +514,7 @@
                                         <p style="margin: 0; font-size: 12px">
                                           <span style="font-size: 22px"
                                             ><strong
-                                              ><span style="">'.$final_stations[0]->price.'</span></strong
+                                              ><span style="">'.$final_stations[0]->price.' €</span></strong
                                             ></span
                                           >
                                         </p>
@@ -554,15 +554,13 @@
                                             Helvetica, sans-serif;
                                         "
                                       >
-                                        '.$final_stations[0]->dist.'
+                                        '.$final_stations[0]->dist.' km
                                         <p
-                                          style="
-                                            margin: 0;
+                                          style="margin: 0;
                                             font-size: 12px;
                                             mso-line-height-alt: 14.399999999999999px;
                                           "
                                         >
-                                           
                                         </p>
                                       </div>
                                     </div>
@@ -1610,159 +1608,6 @@
                   </tr>
                 </tbody>
               </table>
-              <table
-                align="center"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                class="row row-11"
-                role="presentation"
-                style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="row-content stack"
-                        role="presentation"
-                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
-                        width="600"
-                      >
-                        <tbody>
-                          <tr>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                                padding-top: 5px;
-                                padding-bottom: 5px;
-                              "
-                              width="100%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="icons_block"
-                                role="presentation"
-                                style="
-                                  mso-table-lspace: 0pt;
-                                  mso-table-rspace: 0pt;
-                                "
-                                width="100%"
-                              >
-                                <tr>
-                                  <td
-                                    style="
-                                      color: #9d9d9d;
-                                      font-family: inherit;
-                                      font-size: 15px;
-                                      padding-bottom: 5px;
-                                      padding-top: 5px;
-                                      text-align: center;
-                                    "
-                                  >
-                                    <table
-                                      cellpadding="0"
-                                      cellspacing="0"
-                                      role="presentation"
-                                      style="
-                                        mso-table-lspace: 0pt;
-                                        mso-table-rspace: 0pt;
-                                      "
-                                      width="100%"
-                                    >
-                                      <tr>
-                                        <td style="text-align: center">
-                                          <!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
-                                          <!--[if !vml]><!-->
-                                          <table
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            class="icons-inner"
-                                            role="presentation"
-                                            style="
-                                              mso-table-lspace: 0pt;
-                                              mso-table-rspace: 0pt;
-                                              display: inline-block;
-                                              margin-right: -4px;
-                                              padding-left: 0px;
-                                              padding-right: 0px;
-                                            "
-                                          >
-                                            <!--<![endif]-->
-                                            <tr>
-                                              <td
-                                                style="
-                                                  text-align: center;
-                                                  padding-top: 5px;
-                                                  padding-bottom: 5px;
-                                                  padding-left: 5px;
-                                                  padding-right: 6px;
-                                                "
-                                              >
-                                                <a
-                                                  href="https://www.designedwithbee.com/"
-                                                  ><img
-                                                    align="center"
-                                                    alt="Designed with BEE"
-                                                    class="icon"
-                                                    height="32"
-                                                    src="images/bee.png"
-                                                    style="
-                                                      display: block;
-                                                      height: auto;
-                                                      border: 0;
-                                                    "
-                                                    width="34"
-                                                /></a>
-                                              </td>
-                                              <td
-                                                style="
-                                                  font-family: Arial,
-                                                    Helvetica Neue, Helvetica,
-                                                    sans-serif;
-                                                  font-size: 15px;
-                                                  color: #9d9d9d;
-                                                  vertical-align: middle;
-                                                  letter-spacing: undefined;
-                                                  text-align: center;
-                                                "
-                                              >
-                                                <a
-                                                  href="https://www.designedwithbee.com/"
-                                                  style="
-                                                    color: #9d9d9d;
-                                                    text-decoration: none;
-                                                  "
-                                                  >Designed with BEE</a
-                                                >
-                                              </td>
-                                            </tr>
-                                          </table>
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </td>
           </tr>
         </tbody>
@@ -1826,15 +1671,6 @@
         }
 
         $message .= $end;
-        
-        // Compose a simple HTML email message
-        /*
-        $message = '<html><body>';
-        $message .= '<h1 style="color:#f40;">Hi '.$name.'</h1>';
-        $message .= '<p style="color:#080;font-size:18px;">Tanke jetzt!</p>';
-        $message .= '<p style="color:#080;font-size:18px;background-color: #808080;"><a href="http://maps.google.com/maps?q=loc:' . $final_stations[0]->lat . ',' . $final_stations[0]->lng . '">Losfahren!</a></p>';
-        $message .= print_r($final_stations, true);
-        $message .= '</body></html>';*/
         
         if (mail($to , $subject, $message, $headers)){
             echo("Mail send");
