@@ -581,10 +581,10 @@
                 $i = 1;
                 foreach ($stations as $station) {
                     if ($i == 1){
-                        $url .= 'pin-s-'.$i.'ff8000('.$station->lat.','.$station->lng.')';
+                        $url .= 'pin-s-'.$i.'-ff8000('.$station->lat.','.$station->lng.')';
                     }
                     else {
-                        $url .= ',pin-s-'.$i.'285A98('.$station->lat.','.$station->lng.')';
+                        $url .= ',pin-s-'.$i.'-285A98('.$station->lat.','.$station->lng.')';
                     }
                     $i++;                
                 }
