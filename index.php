@@ -16,7 +16,7 @@
         ."&rad=$radius"  // Suchradius in km
         ."&sort=$sort"   // Sortierung: 'price' oder 'dist' - bei type=all diesen Parameter weglassen
         ."&type=$type"   // Spritsorte: 'e5', 'e10', 'diesel' oder 'all'
-        ."&apikey=00000000-0000-0000-0000-000000000002");   // Demo-Key ersetzen!
+        ."&apikey=f371369a-f2bc-3e0c-06da-5c3c92ede92c");   // Demo-Key ersetzen!
     $data = json_decode($json);
 
     $filtered_stations = array();
