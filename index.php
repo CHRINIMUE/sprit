@@ -6,7 +6,8 @@
     $sort = $_GET["sort"];
     $type = $_GET["type"];
 
-    echo("Got req")
+    echo("Got request with: " + $lat + ", " + $lng + ", " + $radius + ", " + $sort, + ", " + $type);
+    
     $json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
         ."?lat=$lat"     // geographische Breite
         ."&lng=$lng"     //               Länge
@@ -18,5 +19,7 @@
     display($data);
     echo($json);
     var_dump($data);
+
+    
 
 ?>
