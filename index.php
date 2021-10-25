@@ -440,6 +440,7 @@
                                           word-break: keep-all;
                                         "
                                       >
+                                      <a href="http://maps.google.com/maps?q=loc:' . $final_stations[0]->lat . ',' . $final_stations[0]->lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -458,6 +459,7 @@
                                             >drive now</span
                                           ></span
                                         >
+                                        </a>
                                       </div>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </div>
