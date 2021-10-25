@@ -574,115 +574,116 @@
                 </tbody>
               </table>';
 
-    $image = '
-              <table
-                align="center"
-                border="0"
-                cellpadding="0"
-                cellspacing="0"
-                class="row row-4"
-                role="presentation"
-                style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
-                width="100%"
-              >
-                <tbody>
-                  <tr>
-                    <td>
-                      <table
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        class="row-content stack"
-                        role="presentation"
-                        style="
-                          mso-table-lspace: 0pt;
-                          mso-table-rspace: 0pt;
-                          background-color: #ffffff;
-                        "
-                        width="600"
-                      >
-                        <tbody>
-                          <tr>
-                            <th
-                              class="column"
-                              style="
-                                mso-table-lspace: 0pt;
-                                mso-table-rspace: 0pt;
-                                font-weight: 400;
-                                text-align: left;
-                                vertical-align: top;
-                                padding-top: 0px;
-                                padding-bottom: 0px;
-                              "
-                              width="100%"
-                            >
-                              <table
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="image_block"
-                                role="presentation"
+              function get_static_image($stations, $lat, $lng){
+
+                $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
+                
+                $i = 1;
+                foreach ($stations as $station) {
+                    if ($i == 1){
+                        $url .= 'pin-s-'.$i.'ff8000('.$station->lat.','.$station->lng.')';
+                    }
+                    else {
+                        $url .= ',pin-s-'.$i.'285A98('.$station->lat.','.$station->lng.')';
+                    }
+                    $i++;                
+                }
+    
+                $url .= '/'.$lat.','.$lng.',12,0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
+            
+                return '
+                <table
+                  align="center"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  class="row row-4"
+                  role="presentation"
+                  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt"
+                  width="100%"
+                >
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table
+                          align="center"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="row-content stack"
+                          role="presentation"
+                          style="
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            background-color: #ffffff;
+                          "
+                          width="600"
+                        >
+                          <tbody>
+                            <tr>
+                              <th
+                                class="column"
                                 style="
                                   mso-table-lspace: 0pt;
                                   mso-table-rspace: 0pt;
+                                  font-weight: 400;
+                                  text-align: left;
+                                  vertical-align: top;
+                                  padding-top: 0px;
+                                  padding-bottom: 0px;
                                 "
                                 width="100%"
                               >
-                                <tr>
-                                  <td
-                                    style="
-                                      width: 100%;
-                                      padding-right: 0px;
-                                      padding-left: 0px;
-                                    "
-                                  >
-                                    <div align="center" style="line-height: 10px">
-                                      <img
-                                        alt="Karte"
-                                        class="big"
-                                        src="'.get_static_image_url($final_stations, $lat, $lng).'"
-                                        style="
-                                          display: block;
-                                          height: auto;
-                                          border: 0;
-                                          width: 600px;
-                                          max-width: 100%;
-                                        "
-                                        title="Karte"
-                                        width="600"
-                                      />
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>';
-
-        function get_static_image_url($stations, $lat, $lng){
-
-            $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
-            
-            $i = 1;
-            foreach ($stations as $station) {
-                if ($i == 1){
-                    $url .= 'pin-s-'.$i.'ff8000('.$station->lat.','.$station->lng.')';
-                }
-                else {
-                    $url .= ',pin-s-'.$i.'285A98('.$station->lat.','.$station->lng.')';
-                }
-                $i++;                
+                                <table
+                                  border="0"
+                                  cellpadding="0"
+                                  cellspacing="0"
+                                  class="image_block"
+                                  role="presentation"
+                                  style="
+                                    mso-table-lspace: 0pt;
+                                    mso-table-rspace: 0pt;
+                                  "
+                                  width="100%"
+                                >
+                                  <tr>
+                                    <td
+                                      style="
+                                        width: 100%;
+                                        padding-right: 0px;
+                                        padding-left: 0px;
+                                      "
+                                    >
+                                      <div align="center" style="line-height: 10px">
+                                        <img
+                                          alt="Karte"
+                                          class="big"
+                                          src="'.$url.'"
+                                          style="
+                                            display: block;
+                                            height: auto;
+                                            border: 0;
+                                            width: 600px;
+                                            max-width: 100%;
+                                          "
+                                          title="Karte"
+                                          width="600"
+                                        />
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>';
             }
 
-            $url .= '/'.$lat.','.$lng.',12,0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
-            return $url;
-        }
+        
 
 
         $info = '
@@ -1312,7 +1313,8 @@
             'Reply-To: '.$from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-        $message = $header . $first_station . $image;
+        $message = $header . $first_station;
+        $message .= $image;
         
         $first = true;
         foreach ($final_stations as $station) {
