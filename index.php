@@ -1293,7 +1293,7 @@
 
         $message = $header . $first_station . $image;
         
-        $first = true
+        $first = true;
         foreach ($final_stations as $station) {
             if ($fist){
                 $fist = false;
