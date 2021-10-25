@@ -264,7 +264,7 @@
                                       <div
                                         style="
                                           font-size: 14px;
-                                          font-family: 'Merriwheater', 'Georgia',
+                                          font-family: "Merriwheater", "Georgia",
                                             serif;
                                           color: #ffffff;
                                           line-height: 1.2;
