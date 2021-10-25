@@ -23,8 +23,8 @@
     var_dump($data);
 
 
-    $filtered_stations = new array();
-    $final_stations = new array();
+    $filtered_stations = array();
+    $final_stations = array();
 
     foreach ($data['stations'] as $value) {
         if ($value['price'] <= $thr_price){
