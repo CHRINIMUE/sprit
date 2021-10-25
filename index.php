@@ -641,7 +641,7 @@
                                       <img
                                         alt="Karte"
                                         class="big"
-                                        src="'.get_static_image_url($final_stations).'"
+                                        src="'.get_static_image_url($final_stations, $lat, $lng).'"
                                         style="
                                           display: block;
                                           height: auto;
@@ -665,7 +665,7 @@
                 </tbody>
               </table>';
 
-        function get_static_image_url($stations){
+        function get_static_image_url($stations, $lat, $lng){
 
             $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
             
