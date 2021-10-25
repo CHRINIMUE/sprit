@@ -375,7 +375,7 @@
                                           "
                                         >
                                           <span style="font-size: 22px"
-                                            ><strong>Station Name<br /></strong
+                                            ><strong>'.$final_stations[0]->name.'<br /></strong
                                           ></span>
                                         </p>
                                       </div>
@@ -514,7 +514,7 @@
                                         <p style="margin: 0; font-size: 12px">
                                           <span style="font-size: 22px"
                                             ><strong
-                                              ><span style="">Price</span></strong
+                                              ><span style="">'.$final_stations[0]->price.'</span></strong
                                             ></span
                                           >
                                         </p>
@@ -554,7 +554,7 @@
                                             Helvetica, sans-serif;
                                         "
                                       >
-                                        distance
+                                        '.$final_stations[0]->dist.'
                                         <p
                                           style="
                                             margin: 0;
@@ -951,6 +951,7 @@
                                           word-break: keep-all;
                                         "
                                       >
+                                      <a href="https://google.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -969,6 +970,7 @@
                                             >drive now</span
                                           ></span
                                         >
+                                        </a>
                                       </div>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </div>
@@ -1321,6 +1323,7 @@
                                           word-break: keep-all;
                                         "
                                       >
+                                      <a href="https://google.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -1336,9 +1339,10 @@
                                               word-break: break-word;
                                               mso-line-height-alt: 32px;
                                             "
-                                            ><a href="href="http://maps.google.com/maps?q=loc:' . $final_stations[0]->lat . ',' . $final_stations[0]->lng . '"">Drive Now</a></span
+                                            >drive Now</span
                                           ></span
                                         >
+                                        </a>
                                       </div>
                                       <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
                                     </div>
