@@ -1,5 +1,4 @@
 <?php 
-    $thr_price = 1.7;
 
     echo("Request starting...");
     $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
@@ -7,6 +6,9 @@
     $radius = isset($_GET["radius"]) ? $_GET["radius"] : '10';
     $sort = isset($_GET["sort"]) ? $_GET["sort"] : 'price';
     $type = isset($_GET["type"]) ? $_GET["type"] : 'e5';
+    $thr_price = isset($_GET["price"]) ? $_GET["price"] : '1.6';
+    $mail = isset($_GET["mail"]) ? $_GET["mail"] : 'mail99@posteo.me';
+    $name = isset($_GET["name"]) ? $_GET["name"] : 'stranger';
 
     echo("Got request with: " .$lat . ", " . $lng . ", " . $radius . ", " . $sort . ", " . $type);
     
@@ -39,11 +41,32 @@
     }
 
     if (sizeof($filtered_stations) > 0){
-        mail("mail99@posteo.me","Tanke jetzt!","Nachrichten Infos: " . print_r($final_stations, true));
-
-        echo "<pre>";
-        var_dump($final_stations);
-        echo "</pre>";
+        $to = $mail;
+        $subject = 'Tanke jetzt oder nie!';
+        $from = 'no-replay@sprit.chrinimue.de';
+        
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        
+        // Create email headers
+        $headers .= 'From: '.$from."\r\n".
+            'Reply-To: '.$from."\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        
+        // Compose a simple HTML email message
+        $message = '<html><body>';
+        $message .= '<h1 style="color:#f40;">Hi '.$name.'</h1>';
+        $message .= '<p style="color:#080;font-size:18px;">Tanke jetzt!</p>';
+        $message .= print_r($final_stations, true);
+        $message .= '</body></html>';
+        
+        if (mail($to , $subject, $message)){
+            echo("Mail send");
+        }
+        else {
+            echo("Error: Mail not send");
+        }
     }
     
 ?>
