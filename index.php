@@ -264,7 +264,7 @@
                                       <div
                                         style="
                                           font-size: 14px;
-                                          font-family: "Merriwheater", "Georgia",
+                                          font-family: \'Merriwheater\', \'Georgia\',
                                             serif;
                                           color: #ffffff;
                                           line-height: 1.2;
@@ -730,7 +730,7 @@
                                       <div
                                         style="
                                           font-size: 14px;
-                                          font-family: 'Merriwheater', 'Georgia',
+                                          font-family: \'Merriwheater\', \'Georgia\',
                                             serif;
                                           color: #ffffff;
                                           line-height: 1.2;
@@ -1567,7 +1567,7 @@
                           mso-table-lspace: 0pt;
                           mso-table-rspace: 0pt;
                           background-color: #ffffff;
-                          background-image: url('images/Blue_and_PaperPlane_Background.png');
+                          background-image: url(\'images/Blue_and_PaperPlane_Background.png\');
                           background-position: center top;
                           background-repeat: no-repeat;
                         "
