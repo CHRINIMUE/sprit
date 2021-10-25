@@ -681,7 +681,7 @@
             }
 
             $url .= '/'.$lat.','.$lng.',12,0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
-
+            return $url;
         }
 
 
