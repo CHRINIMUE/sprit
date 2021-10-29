@@ -1,48 +1,48 @@
 <?php 
 
-    echo("Request starting...");
-    $lat = isset($_GET["lat"]) ? $_GET["lat"] : '47.937580';
-    $lng = isset($_GET["lng"]) ? $_GET["lng"] : '10.235170';
-    $radius = isset($_GET["radius"]) ? $_GET["radius"] : '10';
-    $sort = 'price';
-    $type = isset($_GET["type"]) ? $_GET["type"] : 'e5';
-    $thr_price = isset($_GET["price"]) ? $_GET["price"] : '1.6';
-    $mail = isset($_GET["mail"]) ? $_GET["mail"] : 'mail99@posteo.me';
-    $name = isset($_GET["name"]) ? $_GET["name"] : 'Stranger';
+    echo("Anfrage wird gestartet...");
+    €lat = ist-es-gesetzt?(€_GET["lat"]) ? €_GET["lat"] : '47.937580';
+    €lng = ist-es-gesetzt?(€_GET["lng"]) ? €_GET["lng"] : '10.235170';
+    €radius = ist-es-gesetzt?(€_GET["radius"]) ? €_GET["radius"] : '10';
+    €sort = 'Preis';
+    €type = ist-es-gesetzt?(€_GET["type"]) ? €_GET["type"] : 'e5';
+    €thr_Preis = ist-es-gesetzt?(€_GET["Preis"]) ? €_GET["Preis"] : '1.6';
+    €mail = ist-es-gesetzt?(€_GET["mail"]) ? €_GET["mail"] : 'mail99@posteo.me';
+    €name = ist-es-gesetzt?(€_GET["name"]) ? €_GET["name"] : 'Stranger';
 
-    if ($radius > 25) {
-        $radius = 25;
-    } else if ($radius < 1) {
-        $radius = 1;
+    wenn (€radius > 25) {
+        €radius = 25;
+    } sonst wenn (€radius < 1) {
+        €radius = 1;
     }
 
-    echo("Got request with: " .$lat . ", " . $lng . ", " . $radius . ", " . $sort . ", " . $type);
+    echo("Ich habe eine Frage mit: " .€lat . ", " . €lng . ", " . €radius . ", " . €sort . ", " . €type);
     
-    $json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
-        ."?lat=$lat"     // geographische Breite
-        ."&lng=$lng"     //               Länge
-        ."&rad=$radius"  // Suchradius in km
-        ."&sort=$sort"   // Sortierung: 'price' oder 'dist' - bei type=all diesen Parameter weglassen
-        ."&type=$type"   // Spritsorte: 'e5', 'e10', 'diesel' oder 'all'
+    €json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
+        ."?lat=€lat"     // geographische Breite
+        ."&lng=€lng"     //               Länge
+        ."&rad=€radius"  // Suchradius in km
+        ."&sort=€sort"   // Sortierung: 'Preis' oder 'dist' - bei type=all diesen Parameter weglassen
+        ."&type=€type"   // Spritsorte: 'e5', 'e10', 'diesel' oder 'all'
         ."&apikey=f371369a-f2bc-3e0c-06da-5c3c92ede92c");   // Demo-Key ersetzen!
-    $data = json_decode($json);
+    €Daten = json_decode(€json);
 
-    $filtered_stations = array();
-    $final_stations = array();
+    €filtered_Stationen = array();
+    €final_Stationen = array();
 
-    foreach ($data->stations as $value) {
-        if ($value->price <= $thr_price && $value->isOpen == true){
-            array_push($filtered_stations, $value);
+    für-jedes (€Daten->Stationen as €value) {
+        wenn (€value->Preis <= €thr_Preis && €value->isOpen == true){
+            array_push(€filtered_Stationen, €value);
         }
     }
     
-    $final_stations = $filtered_stations;
+    €final_Stationen = €filtered_Stationen;
 
 
-    if (sizeof($filtered_stations) < 3){
+    wenn (sizeof(€filtered_Stationen) < 3){
     
-        for ($i = sizeof($filtered_stations); $i < 3; $i++){
-            array_push($final_stations, $data->stations[$i+1]);
+        for (€i = sizeof(€filtered_Stationen); €i < 3; €i++){
+            array_push(€final_Stationen, €Daten->Stationen[€i+1]);
         }
     }
 
@@ -50,25 +50,25 @@
 
 
 
-    $header = '<!DOCTYPE html>
+    €Kopf = '<!DOCTYPE html>
 
     <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
     <head>
     <title></title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
-    <!--[if !mso]><!-->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
-    <!--<![endif]-->
+    <!--[wenn mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endwenn]-->
+    <!--[wenn !mso]><!-->
+    <Verknüpfung href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css"/>
+    <Verknüpfung href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
+    <!--<![endwenn]-->
     <style>
             * {
-                box-sizing: border-box;
+                Kiste-sizing: Grenze-Kiste;
             }
     
             body {
-                margin: 0;
+                Abstand: 0;
                 padding: 0;
             }
     
@@ -76,12 +76,12 @@
                 padding: 0
             }
     
-            a[x-apple-data-detectors] {
+            a[x-apple-Daten-detectors] {
                 color: inherit !important;
                 text-decoration: inherit !important;
             }
     
-            #MessageViewBody a {
+            #NachrichtViewBody a {
                 color: inherit;
                 text-decoration: none;
             }
@@ -96,7 +96,7 @@
                 }
     
                 .icons-inner td {
-                    margin: 0 auto;
+                    Abstand: 0 auto;
                 }
     
                 .row-content {
@@ -115,18 +115,18 @@
         </style>
     </head>';
 
-    $first_station = '
+    €first_station = '
     <body
       style="
         background-color: #e1e4e9;
-        margin: 0;
+        Abstand: 0;
         padding: 0;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
       "
     >
       <table
-        border="0"
+        Grenze="0"
         cellpadding="0"
         cellspacing="0"
         class="nl-container"
@@ -143,7 +143,7 @@
             <td>
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-1"
@@ -156,7 +156,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content"
@@ -184,7 +184,7 @@
                               width="100%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="empty_block"
@@ -211,7 +211,7 @@
               </table>
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-2"
@@ -224,7 +224,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content stack"
@@ -252,7 +252,7 @@
                               width="100%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="10"
                                 cellspacing="0"
                                 class="text_block"
@@ -266,25 +266,25 @@
                               >
                                 <tr>
                                   <td>
-                                    <div style="font-family: serif">
+                                    <div style="font-family: serwenn">
                                       <div
                                         style="
                                           font-size: 14px;
                                           font-family: \'Merriwheater\', \'Georgia\',
-                                            serif;
+                                            serwenn;
                                           color: #ffffff;
                                           line-height: 1.2;
                                         "
                                       >
                                         <p
                                           style="
-                                            margin: 0;
+                                            Abstand: 0;
                                             font-size: 14px;
                                             text-align: center;
                                           "
                                         >
                                           <span style="font-size: 30px"
-                                            >Best Price here:<br
+                                            >Best Preis here:<br
                                           /></span>
                                         </p>
                                       </div>
@@ -302,7 +302,7 @@
               </table>
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-3"
@@ -315,7 +315,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content"
@@ -342,7 +342,7 @@
                               width="33.333333333333336%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -363,25 +363,25 @@
                                       padding-top: 30px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 12px;
                                           color: #00255b;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
                                         <p
                                           style="
-                                            margin: 0;
+                                            Abstand: 0;
                                             font-size: 12px;
                                             text-align: center;
                                           "
                                         >
                                           <span style="font-size: 22px"
-                                            ><strong>'.$final_stations[0]->name.'<br /></strong
+                                            ><strong>'.€final_Stationen[0]->name.'<br /></strong
                                           ></span>
                                         </p>
                                       </div>
@@ -402,7 +402,7 @@
                               width="41.666666666666664%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="button_block"
@@ -424,29 +424,29 @@
                                     "
                                   >
                                     <div align="center">
-                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:108px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#ffdb29"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]-->
+                                      <!--[wenn mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:108px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#ffdb29"><w:anchorlock/><v:textKiste inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serwenn; font-size:16px"><![endwenn]-->
                                       <div
                                         style="
                                           text-decoration: none;
                                           display: inline-block;
                                           color: #ffffff;
                                           background-color: #ffdb29;
-                                          border-radius: 4px;
+                                          Grenze-radius: 4px;
                                           width: auto;
-                                          border-top: 1px solid #ffdb29;
-                                          border-right: 1px solid #ffdb29;
-                                          border-bottom: 1px solid #ffdb29;
-                                          border-left: 1px solid #ffdb29;
+                                          Grenze-top: 1px solid #ffdb29;
+                                          Grenze-right: 1px solid #ffdb29;
+                                          Grenze-bottom: 1px solid #ffdb29;
+                                          Grenze-left: 1px solid #ffdb29;
                                           padding-top: 5px;
                                           padding-bottom: 5px;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                           text-align: center;
-                                          mso-border-alt: none;
+                                          mso-Grenze-alt: none;
                                           word-break: keep-all;
                                         "
                                       >
-                                      <a href="http://maps.google.com/maps?q=loc:' . $final_stations[0]->lat . ',' . $final_stations[0]->lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
+                                      <a href="http://maps.google.com/maps?q=loc:' . €final_Stationen[0]->lat . ',' . €final_Stationen[0]->lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;Grenze-radius:4px;width:auto;Grenze-top:1px solid #ffdb29;Grenze-right:1px solid #ffdb29;Grenze-bottom:1px solid #ffdb29;Grenze-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serwenn;text-align:center;mso-Grenze-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -467,7 +467,7 @@
                                         >
                                         </a>
                                       </div>
-                                      <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+                                      <!--[wenn mso]></center></v:textKiste></v:roundrect><![endwenn]-->
                                     </div>
                                   </td>
                                 </tr>
@@ -486,7 +486,7 @@
                               width="25%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -507,18 +507,18 @@
                                       padding-top: 30px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div style="
                                           font-size: 12px;
                                           color: #00255b;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         ">
-                                        <p style="margin: 0; font-size: 12px">
+                                        <p style="Abstand: 0; font-size: 12px">
                                           <span style="font-size: 22px">
                                             <strong>
-                                                <span style="">'.$final_stations[0]->price.' &euro;</span>
+                                                <span style="">'.€final_Stationen[0]->Preis.' &euro;</span>
                                                 </strong>
                                             </span>
                                         </p>
@@ -528,7 +528,7 @@
                                 </tr>
                               </table>
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -548,19 +548,19 @@
                                       padding-bottom: 10px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 12px;
                                           color: #00255b;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
-                                        '.$final_stations[0]->dist.' km
+                                        '.€final_Stationen[0]->dist.' km
                                         <p
-                                          style="margin: 0;
+                                          style="Abstand: 0;
                                             font-size: 12px;
                                             mso-line-height-alt: 14.399999999999999px;
                                           "
@@ -580,34 +580,34 @@
                 </tbody>
               </table>';
 
-              function get_static_image($stations, $lat, $lng, $radius){
+              Funktion Bekomme_statisches_Gemälde(€Stationen, €lat, €lng, €radius){
 
-                $url = 'https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/static/';
+                €url = 'https://api.mapKiste.com/styles/v1/mapKiste/outdoors-v11/static/';
                 
-                $zoom = 10;
-                if ($radius < 5){
-                    $zoom = 12;
-                } else if ($radius < 10){
-                    $zoom = 11;
+                €zoom = 10;
+                wenn (€radius < 5){
+                    €zoom = 12;
+                } sonst wenn (€radius < 10){
+                    €zoom = 11;
                 }
                 
-                $i = 1;
-                foreach ($stations as $station) {
-                    if ($i == 1){
-                        $url .= 'pin-s-'.$i.'+ff8000('.$station->lng.','.$station->lat.')';
+                €i = 1;
+                für-jedes (€Stationen as €station) {
+                    wenn (€i == 1){
+                        €url .= 'pin-s-'.€i.'+ff8000('.€station->lng.','.€station->lat.')';
                     }
-                    else {
-                        $url .= ',pin-s-'.$i.'+285A98('.$station->lng.','.$station->lat.')';
+                    sonst {
+                        €url .= ',pin-s-'.€i.'+285A98('.€station->lng.','.€station->lat.')';
                     }
-                    $i++;                
+                    €i++;                
                 }
     
-                $url .= '/'.$lng.','.$lat.','.$zoom.',0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUifQ.j2he2NoQ6E-uqXHwj3AnDA';
+                €url .= '/'.€lng.','.€lat.','.€zoom.',0/600x600@2x?access_token=pk.eyJ1IjoiY2hyaW5pbXVlIiwiYSI6ImNqZTV2ajNleTM3NnIyd3A5YmE2djFrbHUwennQ.j2he2NoQ6E-uqXHwj3AnDA';
             
-                return '
+                gebe-zurück '
                 <table
                   align="center"
-                  border="0"
+                  Grenze="0"
                   cellpadding="0"
                   cellspacing="0"
                   class="row row-4"
@@ -620,7 +620,7 @@
                       <td>
                         <table
                           align="center"
-                          border="0"
+                          Grenze="0"
                           cellpadding="0"
                           cellspacing="0"
                           class="row-content stack"
@@ -648,7 +648,7 @@
                                 width="100%"
                               >
                                 <table
-                                  border="0"
+                                  Grenze="0"
                                   cellpadding="0"
                                   cellspacing="0"
                                   class="image_block"
@@ -671,11 +671,11 @@
                                         <img
                                           alt="Karte"
                                           class="big"
-                                          src="'.$url.'"
+                                          src="'.€url.'"
                                           style="
                                             display: block;
                                             height: auto;
-                                            border: 0;
+                                            Grenze: 0;
                                             width: 600px;
                                             max-width: 100%;
                                           "
@@ -699,10 +699,10 @@
         
 
 
-        $info = '
+        €info = '
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-5"
@@ -715,7 +715,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content stack"
@@ -745,7 +745,7 @@
                               width="100%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="10"
                                 cellspacing="0"
                                 class="text_block"
@@ -759,25 +759,25 @@
                               >
                                 <tr>
                                   <td>
-                                    <div style="font-family: serif">
+                                    <div style="font-family: serwenn">
                                       <div
                                         style="
                                           font-size: 14px;
                                           font-family: \'Merriwheater\', \'Georgia\',
-                                            serif;
+                                            serwenn;
                                           color: #ffffff;
                                           line-height: 1.2;
                                         "
                                       >
                                         <p
                                           style="
-                                            margin: 0;
+                                            Abstand: 0;
                                             font-size: 14px;
                                             text-align: center;
                                           "
                                         >
                                           <span style="font-size: 30px"
-                                            >Lowest prices at this stations<br
+                                            >Lowest Preiss at this Stationen<br
                                           /></span>
                                         </p>
                                       </div>
@@ -786,7 +786,7 @@
                                 </tr>
                               </table>
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="10"
                                 cellspacing="0"
                                 class="text_block"
@@ -800,24 +800,24 @@
                               >
                                 <tr>
                                   <td>
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 14px;
                                           color: #ffffff;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
                                         <p
                                           style="
-                                            margin: 0;
+                                            Abstand: 0;
                                             font-size: 14px;
                                             text-align: center;
                                           "
                                         >
-                                          This stations are also lower than your
+                                          This Stationen are also lower than your
                                           threnshold (or a litle bit higher)
                                         </p>
                                       </div>
@@ -835,11 +835,11 @@
               </table>';
 
         
-        function single_station($name, $price, $distance, $lat, $lng) {
-            return '
+        Funktion single_station(€name, €Preis, €distance, €lat, €lng) {
+            gebe-zurück '
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-6"
@@ -852,7 +852,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content"
@@ -879,7 +879,7 @@
                               width="33.333333333333336%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -900,26 +900,26 @@
                                       padding-top: 20px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 12px;
                                           color: #ffffff;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
                                         <p
                                           style="
-                                            margin: 0;
+                                            Abstand: 0;
                                             font-size: 12px;
                                             text-align: center;
                                           "
                                         >
                                           <span style="font-size: 22px"
                                             ><strong
-                                              >'.$name.'<br /></strong
+                                              >'.€name.'<br /></strong
                                           ></span>
                                         </p>
                                       </div>
@@ -940,7 +940,7 @@
                               width="41.666666666666664%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="button_block"
@@ -962,29 +962,29 @@
                                     "
                                   >
                                     <div align="center">
-                                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:108px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#ffdb29"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#0377ea; font-family:Arial, sans-serif; font-size:16px"><![endif]-->
+                                      <!--[wenn mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:108px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#ffdb29"><w:anchorlock/><v:textKiste inset="0px,0px,0px,0px"><center style="color:#0377ea; font-family:Arial, sans-serwenn; font-size:16px"><![endwenn]-->
                                       <div
                                         style="
                                           text-decoration: none;
                                           display: inline-block;
                                           color: #0377ea;
                                           background-color: #ffdb29;
-                                          border-radius: 4px;
+                                          Grenze-radius: 4px;
                                           width: auto;
-                                          border-top: 1px solid #ffdb29;
-                                          border-right: 1px solid #ffdb29;
-                                          border-bottom: 1px solid #ffdb29;
-                                          border-left: 1px solid #ffdb29;
+                                          Grenze-top: 1px solid #ffdb29;
+                                          Grenze-right: 1px solid #ffdb29;
+                                          Grenze-bottom: 1px solid #ffdb29;
+                                          Grenze-left: 1px solid #ffdb29;
                                           padding-top: 5px;
                                           padding-bottom: 5px;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                           text-align: center;
-                                          mso-border-alt: none;
+                                          mso-Grenze-alt: none;
                                           word-break: keep-all;
                                         "
                                       >
-                                      <a href="http://maps.google.com/maps?q=loc:' . $lat . ',' . $lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;border-radius:4px;width:auto;border-top:1px solid #ffdb29;border-right:1px solid #ffdb29;border-bottom:1px solid #ffdb29;border-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank">
+                                      <a href="http://maps.google.com/maps?q=loc:' . €lat . ',' . €lng . '" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ffdb29;Grenze-radius:4px;width:auto;Grenze-top:1px solid #ffdb29;Grenze-right:1px solid #ffdb29;Grenze-bottom:1px solid #ffdb29;Grenze-left:1px solid #ffdb29;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serwenn;text-align:center;mso-Grenze-alt:none;word-break:keep-all;" target="_blank">
                                         <span
                                           style="
                                             padding-left: 20px;
@@ -1005,7 +1005,7 @@
                                         >
                                         </a>
                                       </div>
-                                      <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+                                      <!--[wenn mso]></center></v:textKiste></v:roundrect><![endwenn]-->
                                     </div>
                                   </td>
                                 </tr>
@@ -1024,7 +1024,7 @@
                               width="25%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -1045,20 +1045,20 @@
                                       padding-top: 20px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 12px;
                                           color: #ffffff;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
-                                        <p style="margin: 0; font-size: 12px">
+                                        <p style="Abstand: 0; font-size: 12px">
                                           <span style="font-size: 22px"
                                             ><strong
-                                              ><span style="">'.$price.' &euro;</span></strong
+                                              ><span style="">'.€Preis.' &euro;</span></strong
                                             ></span>
                                         </p>
                                       </div>
@@ -1067,7 +1067,7 @@
                                 </tr>
                               </table>
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="0"
                                 cellspacing="0"
                                 class="text_block"
@@ -1087,18 +1087,18 @@
                                       padding-bottom: 10px;
                                     "
                                   >
-                                    <div style="font-family: sans-serif">
+                                    <div style="font-family: sans-serwenn">
                                       <div
                                         style="
                                           font-size: 12px;
                                           color: #ffffff;
                                           line-height: 1.2;
                                           font-family: Arial, Helvetica Neue,
-                                            Helvetica, sans-serif;
+                                            Helvetica, sans-serwenn;
                                         "
                                       >
-                                        <p style="margin: 0; font-size: 12px">
-                                          '.$distance.' km
+                                        <p style="Abstand: 0; font-size: 12px">
+                                          '.€distance.' km
                                         </p>
                                       </div>
                                     </div>
@@ -1115,10 +1115,10 @@
             </table>';
         }
 
-            $end = '
+            €end = '
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-9"
@@ -1131,7 +1131,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content stack"
@@ -1159,7 +1159,7 @@
                               width="100%"
                             >
                               <table
-                                border="0"
+                                Grenze="0"
                                 cellpadding="5"
                                 cellspacing="0"
                                 class="divider_block"
@@ -1174,7 +1174,7 @@
                                   <td>
                                     <div align="center">
                                       <table
-                                        border="0"
+                                        Grenze="0"
                                         cellpadding="0"
                                         cellspacing="0"
                                         role="presentation"
@@ -1190,7 +1190,7 @@
                                             style="
                                               font-size: 1px;
                                               line-height: 1px;
-                                              border-top: 1px solid #ffffff;
+                                              Grenze-top: 1px solid #ffffff;
                                             "
                                           >
                                             <span></span>
@@ -1211,7 +1211,7 @@
               </table>
               <table
                 align="center"
-                border="0"
+                Grenze="0"
                 cellpadding="0"
                 cellspacing="0"
                 class="row row-10"
@@ -1224,7 +1224,7 @@
                     <td>
                       <table
                         align="center"
-                        border="0"
+                        Grenze="0"
                         cellpadding="0"
                         cellspacing="0"
                         class="row-content stack"
@@ -1312,39 +1312,39 @@
 
 
 
-    if (sizeof($filtered_stations) > 0){
-        $to = $mail;
-        $subject = 'Tanke jetzt oder nie!';
-        $from = 'no-reply@sprit.chrinimue.de';
+    wenn (sizeof(€filtered_Stationen) > 0){
+        €to = €mail;
+        €subject = 'Tanke jetzt oder nie!';
+        €from = 'no-reply@sprit.chrinimue.de';
         
-        // To send HTML mail, the Content-type header must be set
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        // To send HTML mail, the Content-type Kopf must be set
+        €Kopfs  = 'MIME-Version: 1.0' . "\r\n";
+        €Kopfs .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         
-        // Create email headers
-        $headers .= 'From: '.$from."\r\n".
-            'Reply-To: '.$from."\r\n" .
+        // Create email Kopfs
+        €Kopfs .= 'From: '.€from."\r\n".
+            'Reply-To: '.€from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-        $message = $header . $first_station;
-        $message .= get_static_image($final_stations, $lat, $lng, $radius);
+        €Nachricht = €Kopf . €first_station;
+        €Nachricht .= Bekomme_statisches_Gemälde(€final_Stationen, €lat, €lng, €radius);
         
-        $first = true;
-        foreach ($final_stations as $station) {
-            if ($first){
-                $first = false;
+        €first = true;
+        für-jedes (€final_Stationen as €station) {
+            wenn (€first){
+                €first = false;
             }
-            else {
-                $message .= single_station($station->name, $station->price, $station->dist, $station->lat, $station->lng);
+            sonst {
+                €Nachricht .= single_station(€station->name, €station->Preis, €station->dist, €station->lat, €station->lng);
             }
         }
 
-        $message .= $end;
+        €Nachricht .= €end;
         
-        if (mail($to , $subject, $message, $headers)){
+        wenn (mail(€to , €subject, €Nachricht, €Kopfs)){
             echo("Mail send");
         }
-        else {
+        sonst {
             echo("Error: Mail not send");
         }
     }
